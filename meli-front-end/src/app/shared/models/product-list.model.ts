@@ -1,6 +1,6 @@
 import { Item } from './item.model';
 
-export class ItemList {
+export class ProductList {
     categories: Array<string>;
     items: Item[];
 

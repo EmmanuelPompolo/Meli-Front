@@ -3,7 +3,9 @@ import { Observable } from 'rxjs';
 import { retry, map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { ItemList } from 'src/app/shared/models/item-list.model';
+import { ProductList } from 'src/app/shared/models/product-list.model';
+import { ItemDetail } from 'src/app/shared/models/item-detail.model';
+import { ProductDetail } from 'src/app/shared/models/product-detail.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,21 +21,21 @@ export class DataService {
 
     private get itemsFull() { return this.urlSystem + this._items; }
 
-    getItems(query: string): Observable<ItemList> {
-      return this.http.get<ItemList>(`${this.itemsFull}?q=${query}`).pipe(
+    getItems(query: string): Observable<ProductList> {
+      return this.http.get<ProductList>(`${this.itemsFull}?q=${query}`).pipe(
         map(res => { return res; })
       );
     }
 
-    getItemDetail(id: string): Observable<ItemList> {
-      return this.http.get<ItemList>(`${this.itemsFull}/${id}`).pipe(
+    getItemDetail(id: string): Observable<ProductDetail> {
+      return this.http.get<ProductDetail>(`${this.itemsFull}/${id}`).pipe(
         map(res => { return res; })
       );
     }
 
-  getJsonData = (service: string): Observable<any> => {
-    return this.http.get<any>(service)
-      .pipe(retry(2));
-  }
+  // getJsonData = (service: string): Observable<any> => {
+  //   return this.http.get<any>(service)
+  //     .pipe(retry(2));
+  // }
 
 }
