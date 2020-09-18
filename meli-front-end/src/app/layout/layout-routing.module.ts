@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout.component';
 
-// La ruta raiz es redirigido a la pagina dashboard, por ahora dashboard no tiene nada pero esta la posibilidad de que vaya creciendo
-// Cada pagina tiene su propio module y routing para utilizar Lazy Loading
+// The root path is redirected to the dashboard page, for now the dashboard has nothing but there is the possibility that it will grow
+// Each page has its own module and routing to use Lazy Loading
 const routes: Routes = [
   {
     path: '',
