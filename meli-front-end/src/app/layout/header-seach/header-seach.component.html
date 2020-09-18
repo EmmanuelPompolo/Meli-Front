@@ -9,10 +9,10 @@
         </a>
         </div>
         <div class="col-9">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Nunca dejes de buscar" aria-label="Nunca dejes de buscar" aria-describedby="button-search">
+          <div class="input-group" (keyup.enter)="search()">
+            <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Nunca dejes de buscar" aria-label="Nunca dejes de buscar" aria-describedby="button-search">
             <div class="input-group-append">
-              <button class="btn btn-light" type="button" id="button-search">
+              <button class="btn btn-light" type="submit" id="button-search" (click)="search()">
                 <img src="/assets/ic_Search.png" alt="">
               </button>
             </div>

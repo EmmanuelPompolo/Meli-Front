@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-seach',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderSeachComponent implements OnInit {
 
-  constructor() { }
+  searchText: ''
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  search(){
+    console.log('buscando...')
+    this.router.navigate(['/items'], { queryParams: { search: this.searchText } });
   }
 
 }

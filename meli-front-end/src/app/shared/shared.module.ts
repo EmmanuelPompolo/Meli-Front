@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductComponent } from './components/product/product.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -11,7 +12,8 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
     BreadcrumbComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     ProductComponent,
