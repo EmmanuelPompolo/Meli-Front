@@ -16,7 +16,6 @@ export class HeaderSeachComponent implements OnInit {
   }
 
   search(){
-    console.log('buscando...')
     this.router.navigate(['/items'], { queryParams: { search: this.searchText } });
   }
 

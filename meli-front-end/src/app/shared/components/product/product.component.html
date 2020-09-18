@@ -1,23 +1,27 @@
-<div class="row product-item">
+
+<div class="row product-item" (click)="goToDetail(id)">
+   
     <div class="col-11">
-        <img src="https://via.placeholder.com/180" alt="" class="item-img float-left">
+        <img [src]="picture" alt="" class="item-img float-left">
         <div class="row no-gutters">
             <div class="col-10">
-                <p class="item-price">$1.980
-                    <img src="/assets/ic_shipping.png" alt="">
+                <p class="item-price">${{price | number:'1.0-2'}}
+                    <img src="/assets/ic_shipping.png" alt="free shipping" [hidden]="!free_shipping">
                 </p>
             </div>
             <div class="col-2">
-                <p class="item-location">Capital Federal</p>
+                <p class="item-location">{{address}}</p>
             </div>
         </div>
         <div class="row no-gutters">
             <div class="col-md-8">
                 <p class="item-description">
-                    Apple Ipod Touch 5g 16gb Negro Igual a Nuevo Completo Único!
+                    {{title}}
                 </p>
             </div>
 
         </div>
     </div>
+
+
 </div>

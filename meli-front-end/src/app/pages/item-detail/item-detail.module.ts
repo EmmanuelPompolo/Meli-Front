@@ -9,8 +9,8 @@ import { ItemDetailRoutingModule } from './item-detail-routing.module';
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule,
-    ItemDetailRoutingModule
+    ItemDetailRoutingModule,
+    SharedModule
   ],
   declarations: [ItemDetailComponent]
 })

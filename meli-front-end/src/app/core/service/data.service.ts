@@ -25,6 +25,12 @@ export class DataService {
       );
     }
 
+    getItemDetail(id: string): Observable<ItemList> {
+      return this.http.get<ItemList>(`${this.itemsFull}/${id}`).pipe(
+        map(res => { return res; })
+      );
+    }
+
   getJsonData = (service: string): Observable<any> => {
     return this.http.get<any>(service)
       .pipe(retry(2));

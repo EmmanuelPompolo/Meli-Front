@@ -8,7 +8,8 @@ const mapItem = ({
   currency_id,
   thumbnail,
   condition,
-  shipping
+  shipping,
+  address
 }) => {
   const priceChunks = splitDecimal(price)
 
@@ -22,7 +23,8 @@ const mapItem = ({
     },
     picture: thumbnail,
     condition,
-    free_shipping: shipping.free_shipping
+    free_shipping: shipping.free_shipping,
+    address: address.state_name
   }
 }
 

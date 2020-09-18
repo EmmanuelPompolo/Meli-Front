@@ -13,13 +13,13 @@ export class ItemListComponent implements OnInit, OnDestroy {
 
   AllSubscriptions: Subscription = new Subscription();
   searchText = '';
-  products: ItemList;
+  products: ItemList = new ItemList();
   categories = [];
 
   @ViewChild('breadcrumb') Breadcrumb;
 
   constructor(private route: ActivatedRoute,
-    private dataService: DataService) { }
+              private dataService: DataService) { }
 
   ngOnInit(): void {
     this.route.queryParams
@@ -37,7 +37,6 @@ export class ItemListComponent implements OnInit, OnDestroy {
   }
 
   getListProducts() {
-    console.log('ingreso a getListProducts')
     this.AllSubscriptions.add(this.dataService.getItems(this.searchText).subscribe(
       (res: ItemList) => {
         this.products = res;
