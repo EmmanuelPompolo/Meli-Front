@@ -1,7 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/core/service/data.service';
+import { ItemList } from 'src/app/shared/models/item-list.model';
 
 @Component({
   selector: 'app-item-list',
@@ -12,6 +13,10 @@ export class ItemListComponent implements OnInit, OnDestroy {
 
   AllSubscriptions: Subscription = new Subscription();
   searchText = '';
+  products: ItemList;
+  categories = [];
+
+  @ViewChild('breadcrumb') Breadcrumb;
 
   constructor(private route: ActivatedRoute,
     private dataService: DataService) { }
@@ -21,7 +26,7 @@ export class ItemListComponent implements OnInit, OnDestroy {
       .subscribe((params) => {
         this.searchText = params['search'];
       });
-      debugger
+
     this.getListProducts();
   }
 
@@ -34,9 +39,9 @@ export class ItemListComponent implements OnInit, OnDestroy {
   getListProducts() {
     console.log('ingreso a getListProducts')
     this.AllSubscriptions.add(this.dataService.getItems(this.searchText).subscribe(
-      (res) => {
-      debugger
-        console.log(res);
+      (res: ItemList) => {
+        this.products = res;
+        this.Breadcrumb.categories = this.products.categories;
       },
       error => {
         console.log(error)

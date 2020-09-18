@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { retry, map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { ItemList } from 'src/app/shared/models/item-list.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +19,8 @@ export class DataService {
 
     private get itemsFull() { return this.urlSystem + this._items; }
 
-    getItems(query: string): Observable<any[]> {
-      debugger
-      return this.http.get<any>(`${this.itemsFull}?q=${query}`).pipe(
+    getItems(query: string): Observable<ItemList> {
+      return this.http.get<ItemList>(`${this.itemsFull}?q=${query}`).pipe(
         map(res => { return res; })
       );
     }

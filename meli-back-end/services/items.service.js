@@ -33,7 +33,7 @@ const obtainItems = async query => {
 
   const categories = response.data.filters
     .find(f => f.id === 'category')
-    .values.map(v => v.name)
+    .values[0].path_from_root.map(x => x.name)
   console.table(`Se obtuvieron las categorias ${categories}`)
 
   const items = response.data.results.map(mapItem)
