@@ -3,17 +3,19 @@
 <div class="app-card product-detail">
     <div class="row ">
         <div class="col-12">
-            <img src="https://via.placeholder.com/680" alt="" class="detail-img float-left">
+            <img [src]="productDetail.item.picture" alt="" class="detail-img float-left">
             <div>
                 <p class="detail-condition">
-                    Nuevo - 234 vendidos
+                    {{productDetail.item.condition}} - {{productDetail.item.sold_quantity}} vendidos
                 </p>
                 <p class="detail-title">
-                    Deco Reverse Sombrero Oxford
+                    {{productDetail.item.title}}
                 </p>
-                <p class="detail-price">
-                    $ 1.980
-                </p>
+                <span class="detail-price">
+                    <span>$ {{getPrice()}}</span>
+                    <sup *ngIf="productDetail.item.price.decimals !== 0">{{productDetail.item.price.decimals}}</sup>
+                </span>
+
                 <div class="row no-gutters">
                     <div class="col-12">
                         <button class="btn btn-primary">Comprar</button>
@@ -28,7 +30,7 @@
                 Descripción del producto
             </p>
             <p class="detail-description">
-                The Scarpe di Bianco Italian footwear collection was founded by bill white in 2009. Di Bianco offers classic handmade mens shoes wirh a moder weist
+                {{productDetail.item.description}}
             </p>
         </div>
     </div>

@@ -2,9 +2,9 @@ import { ItemDetail } from './item-detail.model';
 import { Item } from './item.model';
 
 export class ProductDetail {
-    items: ItemDetail[];
+    item: ItemDetail;
 
     constructor() {
-        this.items = [];
+        this.item = new ItemDetail();
     }
 }

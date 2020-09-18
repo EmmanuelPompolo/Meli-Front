@@ -1,5 +1,8 @@
-export interface Price {
+export class Price {
       currency: string;
       amount: number;
       decimals: number;
+
+      constructor() {
+      }
 };

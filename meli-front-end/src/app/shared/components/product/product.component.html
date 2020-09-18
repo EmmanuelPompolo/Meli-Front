@@ -5,9 +5,11 @@
         <img [src]="picture" alt="" class="item-img float-left">
         <div class="row no-gutters">
             <div class="col-10">
-                <p class="item-price">${{price | number:'1.0-2'}}
+                 <span class="item-price">
+                    <span>$ {{getPrice()}}</span>
+                    <sup *ngIf="decimals !== '0'">{{decimals}}</sup>
                     <img src="/assets/ic_shipping.png" alt="free shipping" [hidden]="!free_shipping">
-                </p>
+                </span>
             </div>
             <div class="col-2">
                 <p class="item-location">{{address}}</p>

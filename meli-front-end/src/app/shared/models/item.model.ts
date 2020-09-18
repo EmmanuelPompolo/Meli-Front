@@ -10,6 +10,6 @@ export class Item {
     address: string;
 
     constructor() {
-
+        this.price = new Price();
     }
 };

@@ -36,7 +36,7 @@ const obtainItems = async query => {
     .values[0].path_from_root.map(x => x.name)
   console.table(`Se obtuvieron las categorias ${categories}`)
 
-  const items = response.data.results.map(mapItem)
+  const items = response.data.results.map(mapItem).slice(0,4);
 
   return {
     categories,

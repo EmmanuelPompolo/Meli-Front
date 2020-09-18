@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { BreadcrumbService } from 'src/app/core/service/breadcrumb.service';
 import { DataService } from 'src/app/core/service/data.service';
+import { UtilsService } from 'src/app/core/service/utils.service';
 import { ProductDetail } from 'src/app/shared/models/product-detail.model';
 
 @Component({
@@ -20,7 +21,8 @@ export class ItemDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private dataService: DataService,
-              private breadcrumbService: BreadcrumbService) { }
+              private breadcrumbService: BreadcrumbService,
+              private utils: UtilsService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id')
@@ -38,12 +40,15 @@ export class ItemDetailComponent implements OnInit {
       (res: ProductDetail) => {
         this.productDetail = res;
         this.Breadcrumb.categories = this.breadcrumbService.getCategories();
-        console.log(this.productDetail)
       },
       error => {
         console.log(error)
       })
     );
+  }
+
+  getPrice() {
+    return this.utils.setFormatNumber(this.productDetail.item.price.amount);
   }
 
 
