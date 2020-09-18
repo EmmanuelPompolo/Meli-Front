@@ -1,0 +1,27 @@
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    background-color: $light-grey;
+    margin-bottom: 16px;
+    margin-top: 16px;
+    padding: 0px;
+    font-size: 14px;
+    color: $mid-grey;
+
+    ol {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .breadcrumb-item + .breadcrumb-item::before {
+        display: inline-block;
+        padding-right: 0.5rem;
+        color: $mid-grey;
+        content: ">";
+    }
+
+    li:last-child {
+        font-weight: bold;
+    }
+}

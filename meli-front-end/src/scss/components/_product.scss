@@ -1,0 +1,30 @@
+.product-item {
+    padding: 16px;
+
+    .item-img {
+        width: 180px;
+        height: 180px;
+        border-radius: 4px;
+        margin-right: 16px;
+    }
+
+    .item-price {
+        font-size: 24px;
+        margin-top: 16px;
+        margin-bottom: 32px;
+
+        img {
+            margin-bottom: 6px;
+            margin-left: 5px;
+        }
+    }
+
+    .item-location {
+        font-size: 12px;
+        margin-top: 27px;
+    }
+
+    .item-description {
+        font-size: 18px;
+    }
+}
